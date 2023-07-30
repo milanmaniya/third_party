@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:third_party/geo%20locator/geolocator.dart';
 import 'package:third_party/shared_preference/counter_shared.dart';
-import 'file_picker/file_picker_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const FilePickerDemo(),
+      home: const GeoLocatorDemo(),
     );
   }
 }
-
-
