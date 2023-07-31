@@ -12,9 +12,7 @@ class GeoCodingDemo extends StatefulWidget {
 
 class _GeoCodingDemoState extends State<GeoCodingDemo> {
   Position? position;
-  double latitude = 0;
-  double longtitude = 0;
-  List<Placemark>? placemark;
+  String address = '';
 
   getCurrentLocation() async {
     bool isEnabled = await Geolocator.isLocationServiceEnabled();
@@ -37,14 +35,19 @@ class _GeoCodingDemoState extends State<GeoCodingDemo> {
       CommonToast().displayToast('Permission is denied forever');
     }
 
-    position = await Geolocator.getCurrentPosition();
+    Position currentPosition = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+
+    List<Placemark> placemark = await placemarkFromCoordinates(
+        currentPosition.latitude, currentPosition.longitude);
+    Placemark place = placemark[0];
 
     setState(() {
-      latitude = position!.latitude;
-      longtitude = position!.longitude;
+      position = currentPosition;
+      address =
+          '${place.locality} ${place.subLocality} ${place.street} ${place.country} ${place.postalCode}';
     });
-
-    placemark = await placemarkFromCoordinates(latitude, longtitude);
   }
 
   @override
@@ -64,9 +67,8 @@ class _GeoCodingDemoState extends State<GeoCodingDemo> {
               height: 30,
             ),
             Text(
-              position != null
-                  ? '$latitude  $longtitude \n $placemark'
-                  : 'not found',
+              textAlign: TextAlign.center,
+              position != null ? '$address \n ' : 'not found',
             ),
           ],
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:third_party/geo%20locator/geolocator.dart';
+import 'package:third_party/permission%20handler/permission_handler.dart';
 import 'package:third_party/shared_preference/counter_shared.dart';
 
 void main() async {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const GeoLocatorDemo(),
+      home: const PermissionHandlerDemo(),
     );
   }
 }
