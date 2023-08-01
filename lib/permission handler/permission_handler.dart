@@ -25,6 +25,12 @@ class _PermissionHandlerDemoState extends State<PermissionHandlerDemo> {
     }
   }
 
+  void accessMultiplePermission(){
+
+    Map<Permission, Permission> statues=await [];
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +39,10 @@ class _PermissionHandlerDemoState extends State<PermissionHandlerDemo> {
           children: [
             ElevatedButton(
               onPressed: () {
-                accessCamera();
+                accessCamera(); 
               },
               child: const Text('Camera Access'),
-            ),
+            ),  
           ],
         ),
       ),
