@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:third_party/permission%20handler/permission_handler.dart';
 import 'package:third_party/shared_preference/counter_shared.dart';
+import 'package:third_party/url%20launcher/url_launcher_demo.dart';
+import 'package:third_party/web%20view/web_view_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const PermissionHandlerDemo(),
+      home: const UrlLauncherDemo(),
     );
   }
 }

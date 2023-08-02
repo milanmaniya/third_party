@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -14,7 +16,6 @@ class _IntlPhoneFieldDemoState extends State<IntlPhoneFieldDemo> {
     return Scaffold(
       body: Center(
         child: IntlPhoneField(
-          
           decoration: const InputDecoration(
             labelText: 'Phone Number',
             border: OutlineInputBorder(
@@ -23,7 +24,7 @@ class _IntlPhoneFieldDemoState extends State<IntlPhoneFieldDemo> {
           ),
           initialCountryCode: 'IN',
           onChanged: (phone) {
-            print(phone.completeNumber);
+            log(phone.completeNumber);
           },
         ),
       ),
